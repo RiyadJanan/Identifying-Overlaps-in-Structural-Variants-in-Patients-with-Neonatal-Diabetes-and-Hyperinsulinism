@@ -53,13 +53,4 @@ The complete dissertation is available in the file **"700009050.pdf"**. It provi
 ### 2. Machine Learning Approaches
 - Future work could involve the integration of **machine learning** to improve variant calling and filtering, allowing for more accurate detection of SVs in large datasets.
 
-## Installation
 
-To run the notebooks, clone the repository and ensure you have the following dependencies:
-- Python 3.x
-- Jupyter
-- Required Python libraries: `matplotlib`, `pandas`, `bedtools`, etc.
-
-Install the dependencies using:
-```bash
-pip install -r requirements.txt
