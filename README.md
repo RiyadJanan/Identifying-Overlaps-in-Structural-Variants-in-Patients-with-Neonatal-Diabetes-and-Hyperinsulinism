@@ -24,6 +24,9 @@ This notebook outlines the steps taken to filter out irrelevant or unreliable va
 - Exclusion of common and non-causative variants
 - Focus on variants occurring exclusively in genes potentially related to NDM and CHI
 
+![](Filtering_WorkFlow.png)
+
+
 ## Project Aim
 
 The goal of the project is to leverage whole genome sequencing data to identify and validate **de novo structural variants** that could explain the genetic basis of **Neonatal Diabetes Mellitus** and **Congenital Hyperinsulinism**. By focusing on **high-confidence structural variants**, we aim to uncover novel pathways involved in insulin regulation.
