@@ -20,16 +20,35 @@ The exploratory analysis focuses on:
 
 ### 3. Variant Filtering (`Filtering.ipynb`)
 This notebook outlines the steps taken to filter out irrelevant or unreliable variants and focus on **de novo SVs**:
-- Removal of unreliable variant calls (e.g., low read counts, large variants)
-- Exclusion of common and non-causative variants
-- Focus on variants occurring exclusively in genes potentially related to NDM and CHI
 
 ![](Filtering_WorkFlow.png)
+**Sample processing (grey):**
+- Raw sequencing data files were restructured and standardized into a unified format using custom Python scripts.
+- Assigned genotype values by analysing the number of reads aligning at specific genomic locations for probands and their parents.
+- Only retained variants present exclusively in the proband and not parents (De Novo)
 
+**Removed unreliable variant calls (orange), including:**
+- genomic landmarks and translocations,
+- variants with low read counts (<5) and large variants (>25kb) difficult to validate.
+
+**Excluded variants likely to be benign (green), including:**
+- Used bedtools to filter out variants overlapping with the Database of Genomic Variants (DGV) Gold Standard (>90% overlap), removing known benign variants.
+- variants shared between NDM and CHI cohorts.
+- variants present in previously solved cases (controls).
+
+**Overlaps within each disease group are identified (blue):**
+- Developed a custom python script which sorts through SV by chromosome and genomic coordinates then groups each SV that overlap and occur in different samples within the same disease group.
+- ClassifyCNV was used to identify duplications and deletions occurring in genes (while also providing a pathogenicity score)
+- Inversions had to be manually checked on IGV.
+- Only those occurring in genes were retained for further analysis and validation.
 
 ## Project Aim
 
 The goal of the project is to leverage whole genome sequencing data to identify and validate **de novo structural variants** that could explain the genetic basis of **Neonatal Diabetes Mellitus** and **Congenital Hyperinsulinism**. By focusing on **high-confidence structural variants**, we aim to uncover novel pathways involved in insulin regulation.
+
+## Methods:
+Sample Collection: Whole genome sequencing was performed on 89 patients with NDM and 103 patients with CHI, along with their parents.
+SV Detection: Used short-read paired-end sequencing data and Matthew’s FindLargeInsertSize software to detect SVs based on variations in paired-end read distances and orientations.
 
 ### Key Findings
 - The filtering process resulted in the identification of 20 candidate de novo SVs in the NDM cohort and 23 in the CHI cohort.
